@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 
-const Product = () => {
+const Product = ({products}) => {
   return (
     <div className="py-10">
         <div className="flex flex-col items-center gap-4">
@@ -14,8 +14,10 @@ const Product = () => {
                 We also have access to a wide range of spare parts for the leading brands including Toshiba, Muratec, Konica Minolta, 
                 Sharp, Canon, Kyocera, Utax and Ricoh</p>
         </div>
-        <div className="max-w-screen-xl mx-auto">
-            <ProductCard />
+        <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-10">
+            {products.map((item) => (
+            <ProductCard key={item._id} product={item} />
+          ))}
         </div>
     </div>
   )
