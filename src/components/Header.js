@@ -4,7 +4,7 @@ import {cart} from "../assets/index"
 
 const Header = () => {
   return (
-    <div className="w-full h-20 bg-white border-b-gray-800 font-titleFont">
+    <div className="w-full h-20 bg-white border-b-gray-800 font-titleFont sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
         <div>
           <img className="w-28" src={logo} alt="logo" />
