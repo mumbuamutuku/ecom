@@ -7,11 +7,13 @@ import {
   createBrowserRouter, Outlet, RouterProvider, ScrollRestoration
 } from "react-router-dom";
 import { productsData } from "./api/Api";
+import Products from "./components/Products";
 
 const Layout=()=>{
   return(
     <div>
       <Header />
+      <ScrollRestoration />
       <Outlet />
       <Footer />
     </div>
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: productsData,
+      },
+      {
+        path: "/products/:id",
+        element: <Products />,
       },
       {
         path: "/cart",
