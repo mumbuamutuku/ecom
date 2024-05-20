@@ -2,10 +2,13 @@ import React from 'react'
 import {logo} from "../assets/index"
 import {cart} from "../assets/index"
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const productData = useSelector((state) => state.bazar.productData);
+  
   return (
-    <div className="w-full h-20 bg-white border-b-gray-800 font-titleFont sticky top-0 z-50">
+      <div className="w-full h-20 bg-white border-b-gray-800 font-titleFont sticky top-0 z-50">
       <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
         <Link to="/">       
           <div>
@@ -33,7 +36,9 @@ const Header = () => {
           <div className="relative">
             <img className="w-6" src={cart} alt="cartImg" />
             <span className="absolute w-6 top-2 left-0 text-sm flex items-center
-            justify-center font-semibold">0</span>
+            justify-center font-semibold">
+              { productData.length }
+            </span>
           </div>
           <img className="w-8 h-8 rounded-full"
           src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?
