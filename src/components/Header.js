@@ -33,13 +33,15 @@ const Header = () => {
             hover:underline underline-offset-2 decoration-[1px] 
             cursor-pointer duration-300">Blog</li>
           </ul>
-          <div className="relative">
-            <img className="w-6" src={cart} alt="cartImg" />
-            <span className="absolute w-6 top-2 left-0 text-sm flex items-center
-            justify-center font-semibold">
-              { productData.length }
-            </span>
-          </div>
+          <Link to ="/cart">
+            <div className="relative">
+              <img className="w-6" src={cart} alt="cartImg" />
+              <span className="absolute w-6 top-2 left-0 text-sm flex items-center
+              justify-center font-semibold">
+                { productData.length }
+              </span>
+            </div>
+          </Link>
           <img className="w-8 h-8 rounded-full"
           src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?
           auto-compress&cs-tinysrgb&w-1260&h-750&dpr-1"
