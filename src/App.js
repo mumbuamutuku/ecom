@@ -61,7 +61,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} loader: productsData />
+            <Route index element={<Home />} />
             <Route path="products/:id" element={<Products />} />
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
