@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import {
   createBrowserRouter, Outlet, RouterProvider, ScrollRestoration
 } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { productsData } from "./api/Api";
 import Products from "./components/Products";
 import Login from "./pages/Login";
@@ -21,36 +22,52 @@ const Layout=()=>{
   );
 };
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-        loader: productsData,
-      },
-      {
-        path: "/products/:id",
-        element: <Products />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-    ]
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Layout />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <Home />,
+//         loader: productsData,
+//       },
+//       {
+//         path: "/products/:id",
+//         element: <Products />,
+//       },
+//       {
+//         path: "/cart",
+//         element: <Cart />,
+//       },
+//       {
+//         path: "/login",
+//         element: <Login />,
+//       },
+//     ]
+//   },
+// ]);
 
+// function App() {
+//   return (
+//     <div className="font-bodyFont">
+//       <RouterProvider router={router}/> 
+//     </div>
+//   );
+// }
 function App() {
   return (
     <div className="font-bodyFont">
-      <RouterProvider router={router}/> 
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} loader: productsData />
+            <Route path="products/:id" element={<Products />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="login" element={<Login />} />
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
